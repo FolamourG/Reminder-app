@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="style.css">
+<body>
+    <! –– Code gets today's date and sends input info to localStorage ––>
+<fieldset>
+    <legend>Add Reminder</legend>
+    <textarea id="txtReminder" placeholder="Your Reminder" onfocus="this.value=''"></textarea>
+    <br />
+    <input type="date" id="reminderDate" />
+    <br />
+    <br />
+    <button id="btnAddReminder" onClick="storeReminder()"> Add Reminder </button>
+
+</fieldset>
+
+<script>
+    function storeReminder() {
+    let name = document.getElementById("txtReminder").value;
+    let description = document.getElementById("btnAddReminder").value
+    localStorage.setItem(name, description);
+}
+
+    const jsDateToISO = date =>`${date.getFullYear()}-${(1+date.getMonth()+'').padStart(2,'0')}-${(date.getDate()+'').padStart(2,'0')}`;
+    const today = jsDateToISO(new Date());
+    reminderDate.value=today;
+    
+</script>
+
+</body>
+</html>
